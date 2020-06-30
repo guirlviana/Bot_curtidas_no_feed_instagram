@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import *
 from selenium.webdriver.support import expected_conditions as CondicaoExperada
-
+import getpass
 import time
 import random
 from selenium.webdriver.common import keys
@@ -26,7 +26,7 @@ class botcurtir:
                 ElementNotSelectableException]
         )
         self.nome = str(input("Qual o usuario do instagram? @"))
-        self.senha = str(input(f"Qual a senha do perfil no instagram? "))
+        self.senha =  getpass.getpass(prompt="Qual a senha do perfil no instagram? ", stream=None)
         self.fotos = int(input("Quantas fotos devo curtir para você? "))
     
     def iniciar(self):
