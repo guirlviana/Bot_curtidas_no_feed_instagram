@@ -56,9 +56,17 @@ class botcurtir:
             campo_senha.send_keys(keys.Keys.ENTER)
             time.sleep(2)          
 
-        except Exception as erro :
-            pass
+            passar_login =  self.wait.until(CondicaoExperada.element_to_be_clickable(
+                        (By.XPATH, f'//button[@class="sqdOP yWX7d    y3zKF     "]'))) 
         
+            if passar_login is not None:
+                passar_login.click()
+            if passar_login is None:
+                pass 
+            time.sleep(2)
+        except Exception as erro :
+            print("Dados de login incorreto, feche e abra o bot novamente")
+
     def Avisos(self):
         print("Acabei de fazer o login")
         print(f"Em 10 segundos começarei a curtir")
@@ -96,6 +104,8 @@ class botcurtir:
             self.curtir(self.qnt)
         else:
             print(f"Obrigado por utilizar {self.nome} :)")
+            time.sleep(2)
+            self.driver.quit() 
 
             
 
