@@ -17,6 +17,7 @@ class botcurtir:
         chrome_options.add_argument('--disable-notifications')
         chrome_options.add_argument('--disable-gpu')
         self.driver = webdriver.Chrome(executable_path=r'./chromedriver.exe', options=chrome_options)
+        self.driver.set_window_size(133,576)
         self.wait = WebDriverWait(
             driver=self.driver,
             timeout=10,
